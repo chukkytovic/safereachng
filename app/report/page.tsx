@@ -49,7 +49,7 @@ export default function ReportPage() {
       if (loc) {
         setLocation({ lat: loc.lat, lng: loc.lng })
       } else if (geoError === 'denied') {
-        setLocationError('Location permission denied. Open your browser settings and allow location access for this site, then try again.')
+        setLocationError('Location permission denied. Open your browser settings, allow location for this site, then try again.')
       } else if (geoError === 'timeout') {
         setLocationError('Location timed out. Move to an open area and try again.')
       } else {

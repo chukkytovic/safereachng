@@ -20,9 +20,9 @@ export default function HomePage() {
   async function autoDetect() {
     setDetecting(true)
     try {
-      const loc = await requestLocation()
-      if (loc) {
-        const slug = detectStateFromCoords(loc.lat, loc.lng)
+      const { location } = await requestLocation()
+      if (location) {
+        const slug = detectStateFromCoords(location.lat, location.lng)
         if (slug) setDetectedState(slug)
       }
     } finally {
@@ -147,7 +147,7 @@ export default function HomePage() {
             <p className="text-text-secondary text-sm mb-3">
               Alert security forces directly. Your phone will send SMS and WhatsApp messages to the relevant command.
             </p>
-            <a
+            
               href="/report"
               className="inline-flex items-center gap-2 px-4 py-2 rounded bg-danger text-white text-sm font-semibold hover:bg-red-800 transition-colors"
             >
