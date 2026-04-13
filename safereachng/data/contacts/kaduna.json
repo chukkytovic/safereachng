@@ -1,0 +1,56 @@
+{
+  "state": "Kaduna State",
+  "slug": "kaduna",
+  "last_reviewed": "2026-03-31",
+  "forces": [
+    {
+      "name": "Nigeria Police Force \u2014 Kaduna State PRO",
+      "type": "police",
+      "division": "Police Public Relations Officer",
+      "numbers": [
+        "08039142451",
+        "08166405566"
+      ],
+      "email": "pro.kaduna@police.gov.ng",
+      "is_free": false,
+      "is_national": false,
+      "source": "police.gov.ng official NPF directory + NPF PRO contact list 2025",
+      "verified": true,
+      "last_updated": "2025-08-01",
+      "notes": "DSP Mansir Hassan (PRO)",
+      "x_handle": "@KadunapoliceNG",
+      "x_url": "https://x.com/KadunapoliceNG"
+    },
+    {
+      "name": "1st Division Nigerian Army \u2014 Kaduna",
+      "type": "army",
+      "division": "Covers Kaduna region",
+      "numbers": [],
+      "x_handle": "@HQNigerianArmy",
+      "x_url": "https://x.com/HQNigerianArmy",
+      "is_free": false,
+      "is_national": false,
+      "source": "army.mil.ng \u2014 Nigerian Army official website",
+      "verified": true,
+      "last_updated": "2026-03-31",
+      "notes": "1 Division covers the North-West. HQ at Kaduna. No public phone \u2014 contact via @HQNigerianArmy on X."
+    },
+    {
+      "name": "NSCDC \u2014 National (works in Kaduna)",
+      "type": "nscdc",
+      "division": "National Hotline",
+      "numbers": [
+        "09029164164"
+      ],
+      "is_free": false,
+      "is_national": true,
+      "source": "nscdc.gov.ng official website \u2014 09029164164 is the published report line",
+      "verified": true,
+      "last_updated": "2026-03-31",
+      "notes": "NSCDC direct report line. 199 short code exists but may not connect reliably \u2014 use this 11-digit number or email instead.",
+      "email": "kaduna@nscdc.gov.ng"
+    }
+  ],
+  "_stub": false,
+  "priority": "critical"
+}

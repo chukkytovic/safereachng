@@ -1,0 +1,85 @@
+{
+  "state": "Rivers State",
+  "slug": "rivers",
+  "last_reviewed": "2026-03-31",
+  "forces": [
+    {
+      "name": "Nigeria Police Force \u2014 Rivers State Control Room",
+      "type": "police",
+      "division": "24/7 Control Room, State HQ",
+      "numbers": [
+        "08032003514",
+        "08073777717"
+      ],
+      "email": "pro.rivers@police.gov.ng",
+      "is_free": false,
+      "is_national": false,
+      "source": "police.gov.ng/information/contact-us (Official NPF Directory, 2025)",
+      "verified": true,
+      "last_updated": "2025-08-01",
+      "notes": "Permanently assigned office lines \u2014 do not change with officer postings. High-risk/active zone",
+      "x_handle": "@RiversPoliceNG",
+      "x_url": "https://x.com/RiversPoliceNG"
+    },
+    {
+      "name": "Nigeria Police Force \u2014 Rivers State PRO",
+      "type": "police",
+      "division": "Police Public Relations Officer",
+      "numbers": [
+        "08033396538",
+        "08037202626",
+        "09118700070"
+      ],
+      "email": "pro.rivers@police.gov.ng",
+      "is_free": false,
+      "is_national": false,
+      "source": "police.gov.ng official NPF directory + NPF PRO contact list 2025",
+      "verified": true,
+      "last_updated": "2025-08-01",
+      "notes": "ASP Agabe Blessing Kaborlori (PRO)"
+    },
+    {
+      "name": "6th Division Nigerian Army \u2014 Port Harcourt",
+      "type": "army",
+      "division": "6 Amphibious Division HQ, Port Harcourt",
+      "numbers": [],
+      "is_free": false,
+      "is_national": false,
+      "source": "army.mil.ng \u2014 division exists but direct contact not publicly listed",
+      "verified": false,
+      "last_updated": "2026-03-31",
+      "notes": "The 6th Amphibious Division covers Rivers, Bayelsa, Delta, Akwa Ibom. Contact via army.mil.ng or use 112 in emergencies."
+    },
+    {
+      "name": "6th Amphibious Division Nigerian Army \u2014 Port Harcourt",
+      "type": "army",
+      "division": "Covers Rivers region",
+      "numbers": [],
+      "x_handle": "@HQNigerianArmy",
+      "x_url": "https://x.com/HQNigerianArmy",
+      "is_free": false,
+      "is_national": false,
+      "source": "army.mil.ng \u2014 Nigerian Army official website",
+      "verified": true,
+      "last_updated": "2026-03-31",
+      "notes": "6 Division covers the South-South/Niger Delta. HQ Port Harcourt. No public phone \u2014 contact via @HQNigerianArmy."
+    },
+    {
+      "name": "NSCDC \u2014 National (works in Rivers)",
+      "type": "nscdc",
+      "division": "National Hotline",
+      "numbers": [
+        "09029164164"
+      ],
+      "is_free": false,
+      "is_national": true,
+      "source": "nscdc.gov.ng official website \u2014 09029164164 is the published report line",
+      "verified": true,
+      "last_updated": "2026-03-31",
+      "notes": "NSCDC direct report line. 199 short code exists but may not connect reliably \u2014 use this 11-digit number or email instead.",
+      "email": "rivers@nscdc.gov.ng"
+    }
+  ],
+  "_stub": false,
+  "priority": "high"
+}

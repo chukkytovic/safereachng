@@ -1,0 +1,52 @@
+{
+  "state": "Kwara State",
+  "slug": "kwara",
+  "last_reviewed": "2026-03-31",
+  "_stub": false,
+  "forces": [
+    {
+      "name": "Nigeria Police Force \u2014 Kwara State PRO",
+      "type": "police",
+      "division": "Police Public Relations Officer",
+      "numbers": [
+        "07032108353"
+      ],
+      "email": "pro.kwara@police.gov.ng",
+      "is_free": false,
+      "is_national": false,
+      "source": "police.gov.ng official NPF directory + NPF PRO contact list 2025",
+      "verified": true,
+      "last_updated": "2025-08-01",
+      "notes": "SP Ejire-Adeyemi Adetoun (PRO)"
+    },
+    {
+      "name": "2nd Division Nigerian Army \u2014 Ibadan",
+      "type": "army",
+      "division": "Covers Kwara region",
+      "numbers": [],
+      "x_handle": "@HQNigerianArmy",
+      "x_url": "https://x.com/HQNigerianArmy",
+      "is_free": false,
+      "is_national": false,
+      "source": "army.mil.ng \u2014 Nigerian Army official website",
+      "verified": true,
+      "last_updated": "2026-03-31",
+      "notes": "2 Division covers the South-West. HQ Ibadan. No public phone \u2014 contact via @HQNigerianArmy."
+    },
+    {
+      "name": "NSCDC National Hotline (works in Kwara State)",
+      "type": "nscdc",
+      "division": "National Hotline",
+      "numbers": [
+        "09029164164"
+      ],
+      "is_free": false,
+      "is_national": true,
+      "source": "nscdc.gov.ng official website \u2014 09029164164 is the published report line",
+      "verified": true,
+      "last_updated": "2026-03-31",
+      "notes": "NSCDC direct report line. 199 short code exists but may not connect reliably \u2014 use this 11-digit number or email instead."
+    }
+  ],
+  "priority": "medium"
+}

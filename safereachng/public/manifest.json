@@ -1,0 +1,16 @@
+{
+  "name": "SafeReach NG",
+  "short_name": "SafeReach",
+  "description": "Emergency security contacts for Nigeria — Police, Army, NSCDC.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F6F8",
+  "theme_color": "#0D1B2A",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["utilities"],
+  "lang": "en-NG"
+}

@@ -1,0 +1,56 @@
+{
+  "state": "Jigawa State",
+  "slug": "jigawa",
+  "last_reviewed": "2026-03-31",
+  "_stub": false,
+  "forces": [
+    {
+      "name": "Nigeria Police Force \u2014 Jigawa State Control Room",
+      "type": "police",
+      "division": "24/7 Control Room, State HQ",
+      "numbers": [
+        "08075391069",
+        "07089846285",
+        "08123821598"
+      ],
+      "email": "pro.jigawa@police.gov.ng",
+      "is_free": false,
+      "is_national": false,
+      "source": "police.gov.ng/information/contact-us (Official NPF Directory, 2025)",
+      "verified": true,
+      "last_updated": "2025-08-01",
+      "notes": "Permanently assigned office lines \u2014 do not change with officer postings. General state command"
+    },
+    {
+      "name": "Nigeria Police Force \u2014 Jigawa State PRO",
+      "type": "police",
+      "division": "Police Public Relations Officer",
+      "numbers": [
+        "07034476581",
+        "08109881890"
+      ],
+      "email": "pro.jigawa@police.gov.ng",
+      "is_free": false,
+      "is_national": false,
+      "source": "police.gov.ng official NPF directory + NPF PRO contact list 2025",
+      "verified": true,
+      "last_updated": "2025-08-01",
+      "notes": "SP Lawan Shiisu Adam (PRO)"
+    },
+    {
+      "name": "NSCDC \u2014 National (works in Jigawa)",
+      "type": "nscdc",
+      "division": "National Hotline",
+      "numbers": [
+        "09029164164"
+      ],
+      "is_free": false,
+      "is_national": true,
+      "source": "nscdc.gov.ng official website \u2014 09029164164 is the published report line",
+      "verified": true,
+      "last_updated": "2026-03-31",
+      "notes": "NSCDC direct report line. 199 short code exists but may not connect reliably \u2014 use this 11-digit number or email instead."
+    }
+  ],
+  "priority": "medium"
+}
