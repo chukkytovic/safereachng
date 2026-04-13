@@ -4,20 +4,20 @@
 
 SafeReach NG is an open-source civic safety web app (PWA) that gives Nigerians verified, state-specific emergency contacts for police, army, NSCDC, and other security forces — with one-tap calling, incident reporting, and a real-time community alert feed.
 
-## ⚠️ Important Disclaimer
+## Important Disclaimer
 
 Numbers are community-maintained. Always cross-verify with official sources.
 **In life-threatening emergencies, dial 112** — works without airtime on ALL Nigerian networks (MTN, Airtel, Glo, 9mobile).
 
 ## Features
 
-- 📞 **One-tap calling** — direct lines for all 36 states + FCT
-- 🆓 **Free lines highlighted** — 112, 199, and other airtime-free numbers clearly marked
-- 📍 **Auto-detect state** — GPS-based state detection
-- 🚨 **Incident reporting** — anonymous GPS-tagged community reports
-- 📡 **Live alert feed** — real-time community incident updates
-- 📱 **PWA** — installable on Android and iOS, works like a native app
-- 🌐 **Open source** — anyone can contribute contact data via GitHub PR
+- **One-tap calling** — direct lines for all 36 states + FCT
+- **Free lines highlighted** — 112, 199, and other airtime-free numbers clearly marked
+- **Auto-detect state** — GPS-based state detection
+- **Incident reporting** — anonymous GPS-tagged community reports
+- **Live alert feed** — real-time community incident updates
+- **PWA** — installable on Android and iOS, works like a native app
+- **Open source** — anyone can contribute contact data via GitHub PR
 
 ## Tech Stack
 

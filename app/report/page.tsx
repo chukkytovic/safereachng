@@ -45,7 +45,6 @@ export default function ReportPage() {
     try {
       const loc = await requestLocation()
       if (loc) setLocation({ lat: loc.lat, lng: loc.lng })
-      else setError('Could not get location. Enable location permissions and try again.')
     } finally {
       setLocating(false)
     }
@@ -172,10 +171,6 @@ export default function ReportPage() {
       </Link>
 
       <div className="bg-navy text-white rounded-lg px-6 py-5 mb-6">
-        <div className="flex items-center gap-2 mb-2">
-          <AlertTriangle className="w-4 h-4 text-danger" />
-          <span className="text-xs font-semibold uppercase tracking-widest text-text-muted">Community Alert</span>
-        </div>
         <h1 className="font-bold text-2xl text-white mb-1">Report an Incident</h1>
         <p className="text-text-muted text-sm">
           Fill in the details. Your phone will open SMS and WhatsApp to send directly to security forces — no app server involved.
@@ -301,8 +296,7 @@ export default function ReportPage() {
         </button>
 
         <p className="text-center text-text-muted text-xs leading-relaxed">
-          No name or account required. Your IP is logged for abuse prevention only.
-          False reports obstruct emergency response — only submit genuine incidents.
+          No name or account required. False reports obstruct emergency response — only submit genuine incidents.
         </p>
       </form>
     </div>

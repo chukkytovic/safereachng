@@ -1,17 +1,13 @@
 import Link from 'next/link'
-import { Radio, AlertTriangle, Phone } from 'lucide-react'
+import { AlertTriangle, Phone } from 'lucide-react'
 
 export default function FeedPage() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
       <div className="bg-navy text-white rounded-lg px-6 py-5 mb-8">
-        <div className="flex items-center gap-2 mb-2">
-          <Radio className="w-4 h-4 text-accent" />
-          <span className="text-xs font-semibold uppercase tracking-widest text-text-muted">Community</span>
-        </div>
         <h1 className="font-bold text-2xl text-white mb-1">Community Alerts</h1>
         <p className="text-text-muted text-sm">
-          Real-time alert feed is coming in V2. Use the Report page to send alerts directly to security forces.
+          Use the Report page to send alerts directly to security forces.
         </p>
       </div>
 

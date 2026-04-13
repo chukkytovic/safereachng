@@ -67,5 +67,5 @@
       "notes": "NSCDC direct report line. 199 short code exists but may not connect reliably \u2014 use this 11-digit number or email instead."
     }
   ],
-  "priority": "high"
+  "priority": "medium"
 }
