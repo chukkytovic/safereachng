@@ -36,15 +36,25 @@ export default function ReportPage() {
   const [form, setForm] = useState({ state: '', lga: '', description: '' })
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null)
   const [locating, setLocating] = useState(false)
+  const [locationError, setLocationError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [alertLinks, setAlertLinks] = useState<AlertLinks[] | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   async function handleGetLocation() {
     setLocating(true)
+    setLocationError(null)
     try {
-      const loc = await requestLocation()
-      if (loc) setLocation({ lat: loc.lat, lng: loc.lng })
+      const { location: loc, error: geoError } = await requestLocation()
+      if (loc) {
+        setLocation({ lat: loc.lat, lng: loc.lng })
+      } else if (geoError === 'denied') {
+        setLocationError('Location permission denied. Open your browser settings and allow location access for this site, then try again.')
+      } else if (geoError === 'timeout') {
+        setLocationError('Location timed out. Move to an open area and try again.')
+      } else {
+        setLocationError('Location unavailable on this device.')
+      }
     } finally {
       setLocating(false)
     }
@@ -274,6 +284,11 @@ export default function ReportPage() {
               {locating ? <Loader2 className="w-4 h-4 animate-spin" /> : <MapPin className="w-4 h-4" />}
               {locating ? 'Getting your location...' : 'Share my GPS location'}
             </button>
+          )}
+          {locationError && (
+            <div className="mt-2 p-3 rounded-lg bg-amber-light border border-amber/30 text-amber text-xs leading-relaxed">
+              {locationError}
+            </div>
           )}
           <p className="mt-1.5 text-text-muted text-xs">
             Only share if you are safe to do so. Coordinates are sent as part of your SMS/WhatsApp message.
