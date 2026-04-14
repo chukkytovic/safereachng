@@ -54,9 +54,8 @@ export default function HomePage() {
         <p className="text-accent font-semibold text-lg sm:text-xl mb-4">
           See Something, Say Something.
         </p>
-        <p className="text-text-muted text-sm sm:text-base leading-relaxed max-w-xl">
-          Direct contact lines for Police, Army, and NSCDC across all 36 states and FCT.
-          One tap. No searching. No wasted time.
+        <p className="text-text-muted text-sm sm:text-base leading-relaxed max-w-xxl">
+          Direct contact lines for Police, Army, and NSCDC across all 36 states and FCT with just one tap.
         </p>
       </div>
 
@@ -70,7 +69,7 @@ export default function HomePage() {
             <Link href="tel:112" className="text-accent font-bold text-base hover:underline">112</Link>
           </p>
           <p className="text-text-secondary text-sm mt-0.5 leading-relaxed">
-            Works free on MTN, Airtel, Glo, 9mobile — even without a SIM card.
+            Works free on MTN, Airtel, Glo, 9mobile, even without a SIM card.
             Army toll-free:{' '}
             <Link href="tel:193" className="text-accent font-semibold hover:underline">193</Link>.
             NSCDC direct:{' '}
@@ -161,7 +160,7 @@ export default function HomePage() {
           <div>
             <p className="font-semibold text-danger text-sm mb-1">Witnessed an attack or threat?</p>
             <p className="text-text-secondary text-sm mb-3">
-              Alert security forces directly. Your phone will send SMS and WhatsApp messages to the relevant command.
+              Alert security forces directly. Your phone will send SMS and/or WhatsApp messages to the relevant command.
             </p>
             <Link
               href="/report"

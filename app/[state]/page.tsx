@@ -82,11 +82,7 @@ export default function StatePage({ params }: Props) {
 
       {freeForces.length > 0 && (
         <section className="mb-8">
-          <div className="flex items-center gap-2 mb-3">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-text-secondary">
-              Free Emergency Lines — Works Without Airtime
-            </h2>
-          </div>
+      
           <div className="space-y-3">
             {freeForces.map((force, i) => (
               <ContactCard key={i} force={force} />

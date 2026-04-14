@@ -36,16 +36,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <p className="text-text-muted text-xs mb-3">
             Always try{' '}
             <a href="tel:112" className="text-accent font-semibold hover:underline">112</a>{' '}
-            first — the most reliable emergency line in Nigeria. Works free on all networks.
+            first, the most reliable emergency line in Nigeria. Works free on all networks.
           </p>
           <div className="flex items-center justify-center gap-4 text-xs">
-            <a href="https://github.com/safereachng/safereachng" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent transition-colors">
+            <a href="https://github.com/chukkytovic/safereachng" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent transition-colors">
               Open Source on GitHub
             </a>
-            <span className="text-text-muted">·</span>
-            <a href="/report" className="text-text-muted hover:text-accent transition-colors">Report Incident</a>
-            <span className="text-text-muted">·</span>
-            <span className="text-text-muted">SafeReach NG 2026</span>
           </div>
         </footer>
       </body>
