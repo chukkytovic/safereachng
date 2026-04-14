@@ -4,7 +4,7 @@ Direct emergency contacts for Nigerian security forces across all 36 states and 
 
 ## What it does
 
-- Browse verified Police, Army, and NSCDC contacts by state
+- Browse Police, Army, and NSCDC contacts by state
 - One-tap call, SMS, or WhatsApp to any contact
 - Report incidents — messages go directly from your device, nothing stored
 - Save personal contacts (officers/units you know) stored on your device only
@@ -12,7 +12,7 @@ Direct emergency contacts for Nigerian security forces across all 36 states and 
 
 ## Tech stack
 
-Next.js 14 · TypeScript · Tailwind CSS · Static JSON data · No database
+Next.js 14 · TypeScript · Tailwind CSS · Static JSON data
 
 ## Run locally
 
