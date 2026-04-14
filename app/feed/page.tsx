@@ -46,7 +46,7 @@ export default function FeedPage() {
       <div className="p-4 rounded-lg border border-accent/30 bg-accent/5">
         <p className="text-sm text-text-secondary">
           <span className="text-accent font-semibold">No airtime? </span>
-          Dial <a href="tel:112" className="text-accent font-bold hover:underline">112</a> — works free on all Nigerian networks.
+          Dial <a href="tel:112" className="text-accent font-bold hover:underline">112</a>, works free on all Nigerian networks.
           Army toll-free: <a href="tel:193" className="text-accent font-bold hover:underline">193</a>.
         </p>
       </div>

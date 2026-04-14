@@ -197,7 +197,7 @@ export default function ReportPage() {
       <div className="bg-navy text-white rounded-lg px-6 py-5 mb-6">
         <h1 className="font-bold text-2xl text-white mb-1">Report an Incident</h1>
         <p className="text-text-muted text-sm">
-          Fill in the details. Your phone will open SMS and WhatsApp to send directly to security forces — no app server involved.
+          Fill in the details. You will choose to send either via SMS and/or WhatsApp directly to security forces.
         </p>
       </div>
 
@@ -220,7 +220,7 @@ export default function ReportPage() {
       <div className="mb-6 p-4 rounded-lg border border-danger-border bg-danger-light">
         <p className="text-sm text-text-secondary">
           <span className="text-danger font-semibold">Immediate danger? </span>
-          Call <Link href="tel:112" className="text-accent font-bold hover:underline">112</Link> now — works without airtime on all networks.
+          Call <Link href="tel:112" className="text-accent font-bold hover:underline">112</Link> now. Works without airtime on all networks.
         </p>
       </div>
 
@@ -248,7 +248,7 @@ export default function ReportPage() {
             type="text"
             value={form.lga}
             onChange={(e) => setForm({ ...form, lga: e.target.value })}
-            placeholder="e.g. Makurdi, Gboko, Katsina-Ala"
+            placeholder="e.g. Maiduguri"
             className="w-full px-4 py-3 rounded-lg bg-white border border-border text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none text-sm"
             required
           />
@@ -261,7 +261,7 @@ export default function ReportPage() {
           <textarea
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value.slice(0, MAX_CHARS) })}
-            placeholder="What happened, exact location, approximate time, number of attackers if known, which direction they went..."
+            placeholder="What happened, exact location, approximate time, number of attackers if known ..."
             rows={6}
             className="w-full px-4 py-3 rounded-lg bg-white border border-border text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none text-sm resize-none leading-relaxed"
             required
