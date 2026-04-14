@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { MapPin, ChevronRight, Phone, AlertTriangle, Search } from 'lucide-react'
-import { STATES } from '@/lib/utils'
+import { STATES, cn } from '@/lib/utils'
 import { requestLocation, detectStateFromCoords } from '@/lib/geo'
-import { cn } from '@/lib/utils'
 
 export default function HomePage() {
   const router = useRouter()
@@ -58,14 +58,14 @@ export default function HomePage() {
         <div>
           <p className="font-semibold text-text-primary text-sm">
             No airtime? Dial{' '}
-            <a href="tel:112" className="text-accent font-bold text-base hover:underline">112</a>
+            <Link href="tel:112" className="text-accent font-bold text-base hover:underline">112</Link>
           </p>
           <p className="text-text-secondary text-sm mt-0.5 leading-relaxed">
             Works free on MTN, Airtel, Glo, 9mobile — even without a SIM card.
             Army toll-free:{' '}
-            <a href="tel:193" className="text-accent font-semibold hover:underline">193</a>.
+            <Link href="tel:193" className="text-accent font-semibold hover:underline">193</Link>.
             NSCDC direct:{' '}
-            <a href="tel:09029164164" className="text-accent font-semibold hover:underline">09029164164</a>.
+            <Link href="tel:09029164164" className="text-accent font-semibold hover:underline">09029164164</Link>.
           </p>
         </div>
       </div>
@@ -81,7 +81,9 @@ export default function HomePage() {
             className="w-full flex items-center justify-between p-4 rounded-lg border-2 border-accent bg-accent/5 hover:bg-accent/10 transition-colors group"
           >
             <div className="flex items-center gap-3">
-              <span className="text-2xl">📍</span>
+              <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                <MapPin className="w-5 h-5 text-accent" />
+              </div>
               <div className="text-left">
                 <p className="font-bold text-text-primary">{detectedStateName} State</p>
                 <p className="text-text-secondary text-sm">View emergency contacts</p>
@@ -147,13 +149,13 @@ export default function HomePage() {
             <p className="text-text-secondary text-sm mb-3">
               Alert security forces directly. Your phone will send SMS and WhatsApp messages to the relevant command.
             </p>
-            
+            <Link
               href="/report"
               className="inline-flex items-center gap-2 px-4 py-2 rounded bg-danger text-white text-sm font-semibold hover:bg-red-800 transition-colors"
             >
               Report Now
               <ChevronRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
