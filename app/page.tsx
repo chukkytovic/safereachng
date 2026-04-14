@@ -55,7 +55,7 @@ export default function HomePage() {
           See Something, Say Something.
         </p>
         <p className="text-text-muted text-sm sm:text-base leading-relaxed max-w-xl">
-          Direct, verified contact lines for Police, Army, and NSCDC across all 36 states and FCT.
+          Direct contact lines for Police, Army, and NSCDC across all 36 states and FCT.
           One tap. No searching. No wasted time.
         </p>
       </div>
