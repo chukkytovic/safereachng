@@ -8,7 +8,9 @@ export interface GeoLocation {
 
 export type GeoError = 'denied' | 'unavailable' | 'timeout' | null
 
-export async function requestLocation(): Promise<{ location: GeoLocation | null; error: GeoError }> {
+export async function requestLocation(
+  highAccuracy = false
+): Promise<{ location: GeoLocation | null; error: GeoError }> {
   if (!navigator.geolocation) return { location: null, error: 'unavailable' }
 
   return new Promise((resolve) => {
@@ -24,11 +26,32 @@ export async function requestLocation(): Promise<{ location: GeoLocation | null;
         })
       },
       (err) => {
-        if (err.code === 1) resolve({ location: null, error: 'denied' })
-        else if (err.code === 2) resolve({ location: null, error: 'unavailable' })
-        else resolve({ location: null, error: 'timeout' })
+        if (err.code === 1) {
+          resolve({ location: null, error: 'denied' })
+        } else {
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              resolve({
+                location: {
+                  lat: pos.coords.latitude,
+                  lng: pos.coords.longitude,
+                  accuracy: pos.coords.accuracy,
+                },
+                error: null,
+              })
+            },
+            (err2) => {
+              if (err2.code === 1) resolve({ location: null, error: 'denied' })
+              else if (err2.code === 2) resolve({ location: null, error: 'unavailable' })
+              else resolve({ location: null, error: 'timeout' })
+            },
+            { timeout: 20000, enableHighAccuracy: true, maximumAge: 0 }
+          )
+        }
       },
-      { timeout: 15000, enableHighAccuracy: true, maximumAge: 30000 }
+      highAccuracy
+        ? { timeout: 20000, enableHighAccuracy: true, maximumAge: 0 }
+        : { timeout: 5000, enableHighAccuracy: false, maximumAge: 60000 }
     )
   })
 }
