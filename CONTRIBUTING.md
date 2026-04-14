@@ -100,7 +100,6 @@ These states are currently stub-only (only 112/199):
 
 - **Report stale numbers** — open an issue if a number is no longer active
 - **Code contributions** — see open issues for bugs and features
-- **Translations** — Hausa, Yoruba, Igbo UI translations (V2)
 - **Testing** — test the app on different devices and report issues
 
 ## Code of Conduct

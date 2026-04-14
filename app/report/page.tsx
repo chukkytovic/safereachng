@@ -45,7 +45,7 @@ export default function ReportPage() {
     setLocating(true)
     setLocationError(null)
     try {
-      const { location: loc, error: geoError } = await requestLocation()
+      const { location: loc, error: geoError } = await requestLocation(true)
       if (loc) {
         setLocation({ lat: loc.lat, lng: loc.lng })
       } else if (geoError === 'denied') {
@@ -119,7 +119,7 @@ export default function ReportPage() {
           <div className="p-4 rounded-lg border border-amber/30 bg-amber-light mb-6">
             <p className="font-semibold text-amber text-sm mb-1">No direct contacts on file for this state yet.</p>
             <p className="text-text-secondary text-sm">
-              Call <a href="tel:112" className="text-accent font-bold">112</a> — works without airtime on all networks.
+              Call <Link href="tel:112" className="text-accent font-bold">112</Link> — works without airtime on all networks.
             </p>
           </div>
         )}
@@ -133,21 +133,29 @@ export default function ReportPage() {
               <div className="p-4 space-y-3">
                 {force.callLinks.map((link, j) => (
                   <div key={j} className="grid grid-cols-3 gap-2">
-                    <a href={link.url}
-                      className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-accent text-white font-semibold text-xs hover:bg-accent-dark transition-colors active:scale-95">
+                    <Link
+                      href={link.url}
+                      className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-accent text-white font-semibold text-xs hover:bg-accent-dark transition-colors active:scale-95"
+                    >
                       <Phone className="w-4 h-4" />
                       Call
-                    </a>
-                    <a href={force.smsLinks[j].url}
-                      className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-blue-600 text-white font-semibold text-xs hover:bg-blue-700 transition-colors active:scale-95">
+                    </Link>
+                    <Link
+                      href={force.smsLinks[j].url}
+                      className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-blue-600 text-white font-semibold text-xs hover:bg-blue-700 transition-colors active:scale-95"
+                    >
                       <Smartphone className="w-4 h-4" />
                       SMS
-                    </a>
-                    <a href={force.whatsappLinks[j].url} target="_blank" rel="noopener noreferrer"
-                      className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-[#25D366] text-white font-semibold text-xs hover:bg-[#128C7E] transition-colors active:scale-95">
+                    </Link>
+                    <Link
+                      href={force.whatsappLinks[j].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center gap-1.5 py-3 rounded-lg bg-[#25D366] text-white font-semibold text-xs hover:bg-[#128C7E] transition-colors active:scale-95"
+                    >
                       <MessageCircle className="w-4 h-4" />
                       WhatsApp
-                    </a>
+                    </Link>
                   </div>
                 ))}
                 <p className="text-text-muted text-xs text-center font-mono">
@@ -159,7 +167,10 @@ export default function ReportPage() {
         </div>
 
         <div className="flex gap-3">
-          <Link href="/" className="flex-1 py-3 rounded-lg border border-border text-text-secondary text-sm font-medium text-center hover:border-border-dark hover:text-text-primary transition-colors">
+          <Link
+            href="/"
+            className="flex-1 py-3 rounded-lg border border-border text-text-secondary text-sm font-medium text-center hover:border-border-dark hover:text-text-primary transition-colors"
+          >
             Back to Home
           </Link>
           <button
@@ -175,7 +186,10 @@ export default function ReportPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
-      <Link href="/" className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors mb-6 text-sm font-medium">
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors mb-6 text-sm font-medium"
+      >
         <ArrowLeft className="w-4 h-4" />
         Back
       </Link>
@@ -206,7 +220,7 @@ export default function ReportPage() {
       <div className="mb-6 p-4 rounded-lg border border-danger-border bg-danger-light">
         <p className="text-sm text-text-secondary">
           <span className="text-danger font-semibold">Immediate danger? </span>
-          Call <a href="tel:112" className="text-accent font-bold hover:underline">112</a> now — works without airtime on all networks.
+          Call <Link href="tel:112" className="text-accent font-bold hover:underline">112</Link> now — works without airtime on all networks.
         </p>
       </div>
 
@@ -272,7 +286,13 @@ export default function ReportPage() {
                 <p className="text-accent text-sm font-medium">Location captured</p>
                 <p className="text-text-muted text-xs">{location.lat.toFixed(5)}, {location.lng.toFixed(5)}</p>
               </div>
-              <button type="button" onClick={() => setLocation(null)} className="ml-auto text-text-muted text-xs hover:text-text-secondary">Remove</button>
+              <button
+                type="button"
+                onClick={() => setLocation(null)}
+                className="ml-auto text-text-muted text-xs hover:text-text-secondary"
+              >
+                Remove
+              </button>
             </div>
           ) : (
             <button

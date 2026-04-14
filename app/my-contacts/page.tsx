@@ -75,8 +75,8 @@ export default function MyContactsPage() {
         <div className="flex items-start gap-3">
           <Phone className="w-5 h-5 text-accent shrink-0 mt-0.5" />
           <p className="text-text-secondary text-sm leading-relaxed">
-            Contacts are saved on this device only and never sent to any server.
-            Uninstalling the app will erase them — note down important numbers elsewhere as a backup.
+            These contacts are saved on your phone and never sent to any server.
+            Use them to quickly reach a specific officer or unit you have a direct line to.
           </p>
         </div>
       </div>

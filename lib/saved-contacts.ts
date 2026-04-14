@@ -24,7 +24,7 @@ export function addSavedContact(
   const existing = getSavedContacts()
   const newContact: SavedContact = {
     ...contact,
-    id: Date.now().toString(36) + Math.random().toString(36).slice(2),
+    id: crypto.randomUUID(),
     addedAt: new Date().toISOString(),
   }
   localStorage.setItem(STORAGE_KEY, JSON.stringify([...existing, newContact]))
