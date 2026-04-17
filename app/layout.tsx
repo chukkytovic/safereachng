@@ -66,10 +66,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="https://github.com/chukkytovic/safereachng" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent transition-colors">
               Open Source on GitHub
             </a>
-            <span className="text-text-muted">·</span>
-            <a href="/report" className="text-text-muted hover:text-accent transition-colors">Report Incident</a>
-            <span className="text-text-muted">·</span>
-            <span className="text-text-muted">SafeReach NG 2026</span>
           </div>
         </footer>
       </body>
