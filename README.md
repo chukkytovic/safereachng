@@ -1,8 +1,8 @@
 # SafeReach NG
 
-In Nigeria, citizens are almost always the first to witness an attack. Bandit raids, kidnappings on highways, communal violence — ordinary Nigerians are there before any security force. Yet most people do not have a direct line to their state police command, army division, or NSCDC. By the time help is reached, it is often too late.
+In Nigeria, citizens are almost always the first to witness an attack. Bandit raids, kidnappings on highways, communal violence, ordinary Nigerians are there before any security force. Yet most people do not have a direct line to their state police command, army division, or NSCDC. By the time help is reached, it is often too late.
 
-SafeReach NG closes that gap. Verified emergency contacts for Police, Army, and NSCDC across all 36 states and FCT — one tap to call, SMS, or WhatsApp. No account. No server. No airtime needed.
+SafeReach NG closes that gap. Verified emergency contacts for Police, Army, and NSCDC across all 36 states and FCT. One tap to call, SMS, or WhatsApp. No account. No server. No airtime needed.
 
 **Live:** [safereachng.vercel.app](https://safereachng.vercel.app)
 
