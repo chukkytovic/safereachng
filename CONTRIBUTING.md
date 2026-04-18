@@ -1,6 +1,6 @@
 # Contributing to SafeReach NG
 
-SafeReach NG exists because citizens in Nigeria often witness security incidents before any response force does — and many do not have a direct line to call. Every verified contact number added to this project makes the app more useful for someone in a genuine emergency.
+SafeReach NG exists because citizens in Nigeria often witness security incidents before any response force does, and many do not have a direct line to call a security force(s) in these moments. Every verified contact number added to this project makes the app more useful for someone in a genuine emergency.
 
 There are two ways to contribute: contact data and code.
 
@@ -59,7 +59,7 @@ npm run dev
 2. Create a branch: `git checkout -b fix/lagos-police-number`
 3. Make your changes
 4. Run `npm run lint` and confirm no errors
-5. Commit with a clear message: `git commit -m "fix: update Lagos police direct line"`
+5. Commit with a clear message: `git commit -m "update Lagos police direct line"`
 6. Push and open a Pull Request against `main`
 
 ### Reporting bugs
@@ -75,8 +75,8 @@ Open an Issue with a clear description of the feature and the problem it solves 
 - Only submit numbers you have personally verified are active
 - Do not submit numbers from unverified social media posts or forwarded WhatsApp messages
 - Do not submit personal phone numbers without explicit permission from the owner
-- Keep Pull Requests focused — one state or one fix per PR
-- This is a civic safety tool — accuracy matters more than volume
+- Keep Pull Requests focused - one state or one fix per PR
+- This is a civic safety tool and accuracy matters more than volume
 
 ## License
 
