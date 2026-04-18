@@ -124,7 +124,6 @@ export default function MyContactsPage() {
               {FORCE_OPTIONS.map(([value, label]) => (
                 <option key={value} value={value}>{label}</option>
               ))}
-              <option value="other">Other</option>
             </select>
           </div>
 

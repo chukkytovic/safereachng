@@ -87,7 +87,7 @@ export default function InstallBanner() {
                     Tap the <Share className="w-3 h-3 inline-block mx-1 text-accent" /> icon in Safari
                   </p>
                   <p className="text-text-muted text-xs">
-                    It is the box with an upward arrow at the <span className="text-white font-semibold">bottom centre</span> of your Safari browser — not this banner
+                    It is the box with an upward arrow at the <span className="text-white font-semibold">bottom centre</span> of your <b>Safari</b> browser.
                   </p>
                 </div>
               </div>
