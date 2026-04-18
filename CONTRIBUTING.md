@@ -10,7 +10,7 @@ This is the most impactful contribution. Each state has a JSON file in `data/con
 
 Before submitting a number:
 - Call it yourself to confirm it is active and reaches the right unit
-- Include the source — official website URL, verified government social account, or direct confirmation from a serving officer
+- Include the source - official website URL, verified government social account, or direct confirmation from a serving officer
 - Set `"verified": true` only if you have personally confirmed the number works
 - Update `"last_updated"` to today's date
 
