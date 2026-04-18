@@ -4,8 +4,8 @@ import Navbar from '@/components/Navbar'
 import InstallBanner from '@/components/InstallBanner'
 
 export const metadata: Metadata = {
-  title: 'SafeReach NG — Emergency Security Contacts',
-  description: 'Direct emergency contacts for Nigerian security forces. Police, Army, NSCDC — one tap from any state.',
+  title: 'SafeReach NG - Emergency Security Contacts',
+  description: 'Direct emergency contacts for Nigerian security forces. Police, Army, NSCDC.',
   keywords: ['emergency', 'Nigeria', 'police', 'security', 'safety', 'contact', 'army', 'NSCDC'],
   manifest: '/manifest.json',
   icons: {
