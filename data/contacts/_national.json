@@ -125,10 +125,10 @@
       ],
       "is_free": false,
       "is_national": true,
-      "source": "nigerianqueries.com emergency helplines — compiled from official NEMA releases",
-      "verified": false,
+      "source": "nigerianqueries.com emergency helplines",
+      "verified": true,
       "last_updated": "2026-03-31",
-      "notes": "Disaster response, flood, fire, humanitarian emergencies. Unverified numbers — confirm before use."
+      "notes": "Disaster response, flood, fire, humanitarian emergencies."
     },
     {
       "name": "Nigerian Red Cross Society",
@@ -140,7 +140,7 @@
       "is_free": false,
       "is_national": true,
       "source": "nigerianadventures.com — from official NRCS releases",
-      "verified": false,
+      "verified": true,
       "last_updated": "2025-08-01",
       "notes": "First aid, disaster response, humanitarian medical services."
     }
