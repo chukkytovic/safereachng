@@ -15,6 +15,14 @@ export function getStateContacts(slug: string): StateContacts | null {
   } catch { return null }
 }
 
+export function getNationalContacts(): StateContacts | null {
+  try {
+    const filePath = path.join(contactsDir, '_national.json')
+    if (!fs.existsSync(filePath)) return null
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8')) as StateContacts
+  } catch { return null }
+}
+
 export function isStubState(contacts: StateContacts): boolean {
   return contacts._stub === true
 }

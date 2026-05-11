@@ -1,119 +1,45 @@
 {
   "state": "National",
   "slug": "_national",
-  "last_reviewed": "2026-03-31",
+  "last_reviewed": "2026-05-07",
   "description": "These numbers work across all states in Nigeria. Always try these first.",
   "forces": [
     {
-      "name": "Nigerian Army \u2014 National HQ",
-      "type": "army",
-      "division": "Army HQ, Area 7, Garki, Abuja",
-      "numbers": [
-        "193"
-      ],
-      "x_handle": "@HQNigerianArmy",
-      "is_free": false,
-      "is_national": true,
-      "source": "army.mil.ng official website",
-      "verified": true,
-      "last_updated": "2025-10-01",
-      "notes": "193 is the Nigerian Army toll-free emergency line. Army does not publish public phone numbers for individual divisions \u2014 contact via 112 or @HQNigerianArmy on X."
-    },
-    {
-      "name": "Nigerian Army \u2014 Info & Operations",
-      "type": "army",
-      "division": "Army Public Relations",
-      "numbers": [],
-      "x_handle": "@NigeriaArmyInfo",
-      "is_free": false,
-      "is_national": true,
-      "source": "Voice of Nigeria \u2014 official Army handles confirmed Oct 2025",
-      "verified": true,
-      "last_updated": "2025-10-01",
-      "notes": "Official Army information and operational updates account."
-    },
-    {
-      "name": "Defence HQ Nigeria",
-      "type": "army",
-      "division": "Armed Forces of Nigeria \u2014 Joint HQ",
-      "numbers": [],
-      "x_handle": "@DHQNigeria",
-      "is_free": false,
-      "is_national": true,
-      "source": "X @DHQNigeria \u2014 verified official account",
-      "verified": true,
-      "last_updated": "2025-10-01",
-      "notes": "Joint armed forces headquarters. Handles multi-service operations."
-    },
-    {
-      "name": "Nigeria Police \u2014 Complaint Response Unit (CRU)",
+      "name": "Nigeria Police Force — Complaint Response Unit (CRU)",
       "type": "police",
-      "division": "National CRU \u2014 24/7",
+      "division": "National CRU — 24/7",
       "numbers": [
         "09133333785",
-        "09133333786"
+        "09133333786",
+        "08057000001"
       ],
-      "whatsapp_number": "08057000003",
-      "x_handle": "@PoliceNG_CRU",
-      "is_free": false,
-      "is_national": true,
-      "source": "X @PoliceNG \u2014 official NPF post",
-      "verified": true,
-      "last_updated": "2025-01-01",
-      "notes": "24/7 national complaint and emergency line. SMS/WhatsApp: 08057000003. For all 36 states."
-    },
-    {
-      "name": "Nigeria Police Force \u2014 National HQ",
-      "type": "police",
-      "division": "Force HQ, Abuja",
-      "numbers": [],
-      "x_handle": "@PoliceNG",
-      "is_free": false,
-      "is_national": true,
-      "source": "X @PoliceNG \u2014 official NPF account",
-      "verified": true,
-      "last_updated": "2026-03-31",
-      "notes": "National NPF account. Tag for urgent national-level incidents."
-    },
-    {
-      "name": "NSCDC \u2014 Nigeria Security and Civil Defence Corps",
-      "type": "nscdc",
-      "division": "National HQ, Abuja",
-      "numbers": [
-        "199",
-        "09029164164"
-      ],
-      "x_handle": "@NSCDCOfficial",
-      "is_free": true,
-      "is_national": true,
-      "source": "nscdc.gov.ng official website \u2014 confirmed 2026",
-      "verified": true,
-      "last_updated": "2026-03-31",
-      "notes": "199 is NSCDC official 24/7 hotline (published on nscdc.gov.ng). 09029164164 is the direct incident report line. Both are from official NSCDC website.",
-      "x_url": "https://x.com/NSCDCOfficial"
-    },
-    {
-      "name": "NPF Complaint Response Unit (CRU)",
-      "type": "police",
-      "division": "National \u2014 24/7 complaints and emergency",
-      "numbers": [
-        "09133333785",
-        "09133333786"
-      ],
-      "whatsapp": "08057000003",
       "x_handle": "@PoliceNG_CRU",
       "x_url": "https://x.com/PoliceNG_CRU",
       "is_free": false,
       "is_national": true,
       "source": "X.com @PoliceNG_CRU official account",
       "verified": true,
-      "last_updated": "2026-03-31",
-      "notes": "24/7 complaint and emergency line. SMS/WhatsApp: 08057000003. Tag @PoliceNG_CRU on X."
+      "last_updated": "2026-05-07",
+      "notes": "24/7 national complaint and emergency line. WhatsApp: 08057000003. Report police misconduct, harassment, or intimidation. For all 36 states."
     },
     {
-      "name": "Nigerian Army \u2014 National HQ",
+      "name": "Nigeria Police Force — National HQ",
+      "type": "police",
+      "division": "Force HQ, Abuja",
+      "numbers": [],
+      "x_handle": "@PoliceNG",
+      "x_url": "https://x.com/PoliceNG",
+      "is_free": false,
+      "is_national": true,
+      "source": "X @PoliceNG — official NPF account",
+      "verified": true,
+      "last_updated": "2026-03-31",
+      "notes": "National NPF account. Tag for urgent national-level incidents."
+    },
+    {
+      "name": "Nigerian Army — National HQ",
       "type": "army",
-      "division": "Army HQ, Abuja",
+      "division": "Army HQ, Area 7, Garki, Abuja",
       "numbers": [
         "193"
       ],
@@ -124,10 +50,55 @@
       "source": "army.mil.ng official website",
       "verified": true,
       "last_updated": "2026-03-31",
-      "notes": "193 is the Nigerian Army toll-free emergency line. Army does not publish public phone numbers for individual divisions \u2014 contact via 112 or @HQNigerianArmy on X."
+      "notes": "193 is the Nigerian Army toll-free emergency line. Army does not publish public phone numbers for individual divisions — contact via 112 or @HQNigerianArmy on X."
     },
     {
-      "name": "Department of State Services (DSS/SSS)",
+      "name": "Nigerian Army — Info & Operations",
+      "type": "army",
+      "division": "Army Public Relations",
+      "numbers": [],
+      "x_handle": "@NigeriaArmyInfo",
+      "x_url": "https://x.com/NigeriaArmyInfo",
+      "is_free": false,
+      "is_national": true,
+      "source": "Voice of Nigeria — official Army handles confirmed Oct 2025",
+      "verified": true,
+      "last_updated": "2025-10-01",
+      "notes": "Official Army information and operational updates account."
+    },
+    {
+      "name": "Defence HQ Nigeria",
+      "type": "army",
+      "division": "Armed Forces of Nigeria — Joint HQ",
+      "numbers": [],
+      "x_handle": "@DHQNigeria",
+      "x_url": "https://x.com/DHQNigeria",
+      "is_free": false,
+      "is_national": true,
+      "source": "X @DHQNigeria — verified official account",
+      "verified": true,
+      "last_updated": "2025-10-01",
+      "notes": "Joint armed forces headquarters. Handles multi-service operations."
+    },
+    {
+      "name": "NSCDC — Nigeria Security and Civil Defence Corps",
+      "type": "nscdc",
+      "division": "National HQ, Abuja",
+      "numbers": [
+        "199",
+        "09029164164"
+      ],
+      "x_handle": "@NSCDCOfficial",
+      "x_url": "https://x.com/NSCDCOfficial",
+      "is_free": true,
+      "is_national": true,
+      "source": "nscdc.gov.ng official website — confirmed 2026",
+      "verified": true,
+      "last_updated": "2026-03-31",
+      "notes": "199 is NSCDC official 24/7 hotline. 09029164164 is the direct incident report line. Both from official NSCDC website."
+    },
+    {
+      "name": "Department of State Services (DSS)",
       "type": "dss",
       "division": "National HQ, 1 Maitama Avenue, Abuja",
       "numbers": [
@@ -139,13 +110,13 @@
       "x_url": "https://x.com/OfficialDSSNG",
       "is_free": false,
       "is_national": true,
-      "source": "dss.gov.ng official website \u2014 verified 2026",
+      "source": "dss.gov.ng official website — verified 2026",
       "verified": true,
       "last_updated": "2026-03-31",
-      "notes": "Report terrorism, espionage, organized crime, separatist threats. NOT for everyday crime \u2014 use police for that."
+      "notes": "Report terrorism, espionage, organized crime, separatist threats. NOT for everyday crime — use police for that."
     },
     {
-      "name": "NEMA \u2014 National Emergency Management Agency",
+      "name": "NEMA — National Emergency Management Agency",
       "type": "other",
       "division": "National HQ, Abuja",
       "numbers": [
@@ -154,10 +125,10 @@
       ],
       "is_free": false,
       "is_national": true,
-      "source": "nigerianqueries.com emergency helplines \u2014 compiled from official NEMA releases",
+      "source": "nigerianqueries.com emergency helplines — compiled from official NEMA releases",
       "verified": false,
       "last_updated": "2026-03-31",
-      "notes": "Disaster response, flood, fire, humanitarian emergencies. Unverified numbers \u2014 confirm before use."
+      "notes": "Disaster response, flood, fire, humanitarian emergencies. Unverified numbers — confirm before use."
     },
     {
       "name": "Nigerian Red Cross Society",
@@ -168,7 +139,7 @@
       ],
       "is_free": false,
       "is_national": true,
-      "source": "nigerianadventures.com \u2014 from official NRCS releases",
+      "source": "nigerianadventures.com — from official NRCS releases",
       "verified": false,
       "last_updated": "2025-08-01",
       "notes": "First aid, disaster response, humanitarian medical services."

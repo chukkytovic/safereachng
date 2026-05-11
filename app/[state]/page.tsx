@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, AlertTriangle, GitPullRequest, Phone } from 'lucide-react'
-import { getStateContacts, isStubState } from '@/lib/contacts'
+import { ArrowLeft, AlertTriangle, GitPullRequest } from 'lucide-react'
+import { getStateContacts, getNationalContacts, isStubState } from '@/lib/contacts'
 import { STATES } from '@/lib/utils'
 import ContactCard from '@/components/contacts/ContactCard'
 import type { Metadata } from 'next'
@@ -25,17 +25,23 @@ export default function StatePage({ params }: Props) {
   const contacts = getStateContacts(params.state)
   if (!contacts) notFound()
 
+  const national = getNationalContacts()
+
   const isStub = isStubState(contacts)
   const priority = (contacts as { priority?: string }).priority
 
   const freeForces = contacts.forces.filter((f) => f.is_national)
   const directForces = contacts.forces.filter((f) => !f.is_national)
+  const nationalForces = national?.forces ?? []
 
   const priorityBanner = priority === 'critical' || priority === 'high'
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Link href="/" className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors mb-6 text-sm font-medium">
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors mb-6 text-sm font-medium"
+      >
         <ArrowLeft className="w-4 h-4" />
         All States
       </Link>
@@ -68,10 +74,14 @@ export default function StatePage({ params }: Props) {
             <div>
               <p className="font-semibold text-text-primary text-sm mb-1">Direct numbers not yet verified</p>
               <p className="text-text-secondary text-sm mb-3">
-                Use the national free lines below — they work anywhere in Nigeria.
+                Use the national lines below — they work anywhere in Nigeria.
               </p>
-              <a href="https://github.com/safereachng/safereachng" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-text-secondary text-sm hover:text-text-primary transition-colors">
+              <a
+                href="https://github.com/chukkytovic/safereachng"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-text-secondary text-sm hover:text-text-primary transition-colors"
+              >
                 <GitPullRequest className="w-3.5 h-3.5" />
                 Contribute contacts for {contacts.state}
               </a>
@@ -82,7 +92,6 @@ export default function StatePage({ params }: Props) {
 
       {freeForces.length > 0 && (
         <section className="mb-8">
-      
           <div className="space-y-3">
             {freeForces.map((force, i) => (
               <ContactCard key={i} force={force} />
@@ -106,6 +115,21 @@ export default function StatePage({ params }: Props) {
         </section>
       )}
 
+      {nationalForces.length > 0 && (
+        <section className="mb-8">
+          <div className="flex items-center gap-2 mb-3">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-text-secondary">
+              National Lines — Work in All States
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {nationalForces.map((force, i) => (
+              <ContactCard key={i} force={force} />
+            ))}
+          </div>
+        </section>
+      )}
+
       <div className="bg-danger-light border border-danger-border rounded-lg p-4 mb-6">
         <div className="flex items-center gap-3">
           <AlertTriangle className="w-5 h-5 text-danger shrink-0" />
@@ -113,13 +137,14 @@ export default function StatePage({ params }: Props) {
             <p className="font-semibold text-danger text-sm">Witnessed an incident?</p>
             <p className="text-text-secondary text-xs mt-0.5">Alert security forces directly</p>
           </div>
-          <Link href="/report" className="px-4 py-2 rounded bg-danger text-white text-sm font-semibold hover:bg-red-800 transition-colors whitespace-nowrap">
+          <Link
+            href="/report"
+            className="px-4 py-2 rounded bg-danger text-white text-sm font-semibold hover:bg-red-800 transition-colors whitespace-nowrap"
+          >
             Report Now
           </Link>
         </div>
       </div>
-
-
     </div>
   )
 }
