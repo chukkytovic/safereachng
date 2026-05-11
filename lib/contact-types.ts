@@ -1,6 +1,7 @@
 export type ForceType =
   | 'police' | 'army' | 'nscdc' | 'airforce'
-  | 'navy' | 'dss' | 'amotekun' | 'vigilante' | 'other'
+  | 'navy' | 'dss' | 'amotekun' | 'vigilante'
+  | 'redcross' | 'nema' | 'other'
 
 export interface Force {
   name: string
@@ -34,18 +35,29 @@ export function toInternational(number: string): string {
 }
 
 export const FORCE_LABELS: Record<ForceType, string> = {
-  police: 'Police', army: 'Army', nscdc: 'NSCDC', airforce: 'Air Force',
-  navy: 'Navy', dss: 'DSS', amotekun: 'Amotekun', vigilante: 'Vigilante', other: 'Other',
+  police: 'Police',
+  army: 'Army',
+  nscdc: 'NSCDC',
+  airforce: 'Air Force',
+  navy: 'Navy',
+  dss: 'DSS',
+  amotekun: 'Amotekun',
+  vigilante: 'Vigilante',
+  redcross: 'Red Cross',
+  nema: 'NEMA',
+  other: 'Other',
 }
 
 export const FORCE_COLORS: Record<ForceType, string> = {
-  police:   'text-blue-800 bg-blue-50 border-blue-200',
-  army:     'text-green-800 bg-green-50 border-green-200',
-  nscdc:    'text-orange-800 bg-orange-50 border-orange-200',
-  airforce: 'text-sky-800 bg-sky-50 border-sky-200',
-  navy:     'text-indigo-800 bg-indigo-50 border-indigo-200',
-  dss:      'text-purple-800 bg-purple-50 border-purple-200',
-  amotekun: 'text-amber-800 bg-amber-50 border-amber-200',
-  vigilante:'text-yellow-800 bg-yellow-50 border-yellow-200',
-  other:    'text-slate-700 bg-slate-50 border-slate-200',
+  police:    'text-blue-800 bg-blue-50 border-blue-200',
+  army:      'text-green-800 bg-green-50 border-green-200',
+  nscdc:     'text-orange-800 bg-orange-50 border-orange-200',
+  airforce:  'text-sky-800 bg-sky-50 border-sky-200',
+  navy:      'text-indigo-800 bg-indigo-50 border-indigo-200',
+  dss:       'text-purple-800 bg-purple-50 border-purple-200',
+  amotekun:  'text-amber-800 bg-amber-50 border-amber-200',
+  vigilante: 'text-yellow-800 bg-yellow-50 border-yellow-200',
+  redcross:  'text-red-800 bg-red-50 border-red-200',
+  nema:      'text-emerald-800 bg-emerald-50 border-emerald-200',
+  other:     'text-slate-700 bg-slate-50 border-slate-200',
 }

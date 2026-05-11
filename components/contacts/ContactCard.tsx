@@ -10,6 +10,9 @@ function ForceImage({ type }: { type: string }) {
     police: '/police-logo.jpg',
     army: '/army-logo.png',
     nscdc: '/nscdc-logo.png',
+    dss: '/dss-logo.jpg',
+    redcross: '/redcross-logo.jpg',
+    nema: '/nema-logo.png',
   }
   if (!images[type]) return null
   return (
