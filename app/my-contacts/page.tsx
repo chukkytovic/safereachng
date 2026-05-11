@@ -1,139 +1,205 @@
-import { Phone, Info, Twitter, AlertCircle } from 'lucide-react'
-import Image from 'next/image'
-import type { Force } from '@/lib/contact-types'
-import { FORCE_LABELS, FORCE_COLORS } from '@/lib/contact-types'
-import { formatPhoneForDisplay } from '@/lib/utils'
+'use client'
+
+import { useState, useEffect } from 'react'
+import { UserPlus, BookmarkCheck, Phone, ChevronDown, ChevronUp } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { FORCE_LABELS } from '@/lib/contact-types'
+import type { ForceType } from '@/lib/contact-types'
+import {
+  getSavedContacts,
+  addSavedContact,
+  deleteSavedContact,
+} from '@/lib/saved-contacts'
+import type { SavedContact } from '@/lib/saved-contacts'
+import SavedContactCard from '@/components/contacts/SavedContactCard'
 
-function ForceImage({ type, name }: { type: string; name: string }) {
-  const images: Record<string, string> = {
-    police: '/police-logo.jpg',
-    army: '/army-logo.png',
-    nscdc: '/nscdc-logo.png',
-    dss: '/dss-logo.jpg',
-    redcross: '/redcross-logo.jpg',
-    nema: '/nema-logo.png',
+const FORCE_OPTIONS = Object.entries(FORCE_LABELS) as [ForceType, string][]
+
+const EMPTY_FORM = { name: '', type: 'police' as ForceType | 'other', number: '', notes: '' }
+
+export default function MyContactsPage() {
+  const [contacts, setContacts] = useState<SavedContact[]>([])
+  const [showForm, setShowForm] = useState(false)
+  const [form, setForm] = useState(EMPTY_FORM)
+  const [error, setError] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setContacts(getSavedContacts())
+    setMounted(true)
+  }, [])
+
+  function handleAdd() {
+    setError(null)
+
+    if (!form.name.trim()) { setError('Enter a name for this contact.'); return }
+
+    const cleanNumber = form.number.replace(/\D/g, '')
+    if (cleanNumber.length < 7) { setError('Enter a valid phone number.'); return }
+
+    const saved = addSavedContact({
+      name: form.name.trim(),
+      type: form.type,
+      number: form.number.trim(),
+      notes: form.notes.trim() || undefined,
+    })
+
+    setContacts((prev) => [...prev, saved])
+    setForm(EMPTY_FORM)
+    setShowForm(false)
   }
 
-  let src = images[type]
-  if (!src && type === 'other') {
-    const lowerName = name.toLowerCase()
-    if (lowerName.includes('red cross')) {
-      src = '/redcross-logo.jpg'
-    } else if (lowerName.includes('nema') || lowerName.includes('emergency management')) {
-      src = '/nema-logo.png'
-    }
+  function handleDelete(id: string) {
+    deleteSavedContact(id)
+    setContacts((prev) => prev.filter((c) => c.id !== id))
   }
 
-  if (!src) return null
+  if (!mounted) return null
 
   return (
-    <div className="w-10 h-10 rounded border border-border bg-surface-dark flex items-center justify-center overflow-hidden shrink-0">
-      <Image
-        src={src}
-        alt={FORCE_LABELS[type as keyof typeof FORCE_LABELS] ?? type}
-        width={40}
-        height={40}
-        className="object-contain w-9 h-9"
-      />
-    </div>
-  )
-}
+    <div className="max-w-2xl mx-auto px-4 py-8">
+      <div className="bg-navy text-white rounded-lg px-6 py-5 mb-6">
+        <div className="flex items-center gap-2 mb-1">
+          <BookmarkCheck className="w-4 h-4 text-accent" />
+          <span className="text-xs font-semibold uppercase tracking-widest text-text-muted">
+            Personal
+          </span>
+        </div>
+        <h1 className="font-bold text-2xl text-white mb-1">My Contacts</h1>
+        <p className="text-text-muted text-sm">
+          Save contacts for officers or units you know personally. Stored on this device only.
+        </p>
+      </div>
 
-export default function ContactCard({ force }: { force: Force }) {
-  const hasNumbers = force.numbers.length > 0
-  const hasX = force.x_handle && force.x_url
-  const hasTrulyFreeNumber = force.numbers.some(
-    (n) => n === '112' || n === '767' || n === '193' || n === '199'
-  )
+      <div className="bg-white border border-border rounded-lg p-4 mb-6 shadow-card">
+        <div className="flex items-start gap-3">
+          <Phone className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+          <p className="text-text-secondary text-sm leading-relaxed">
+            These contacts are saved on your phone and never sent to any server.
+            Use them to quickly reach a specific officer or unit you have a direct line to.
+          </p>
+        </div>
+      </div>
 
-  return (
-    <div className={cn(
-      'rounded-lg border bg-white shadow-card transition-all',
-      hasTrulyFreeNumber ? 'border-accent' : 'border-border'
-    )}>
-      <div className="p-4">
-        <div className="flex items-start gap-3 mb-3">
-          <ForceImage type={force.type} name={force.name} />
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1 flex-wrap">
-              <span className={cn('text-xs font-semibold px-2 py-0.5 rounded border', FORCE_COLORS[force.type])}>
-                {FORCE_LABELS[force.type]}
-              </span>
-              {hasTrulyFreeNumber && (
-                <span className="text-xs font-semibold px-2 py-0.5 rounded border border-accent/50 bg-accent/10 text-accent">
-                  Free Line
-                </span>
-              )}
-              {force.is_national && (
-                <span className="text-xs px-2 py-0.5 rounded border border-border text-text-muted">National</span>
-              )}
-              {!force.verified && (
-                <span className="text-xs px-2 py-0.5 rounded border border-amber/30 bg-amber-light text-amber flex items-center gap-1">
-                  <AlertCircle className="w-2.5 h-2.5" />
-                  Unverified
-                </span>
-              )}
-            </div>
-            <h3 className="font-semibold text-text-primary text-sm leading-snug">{force.name}</h3>
-            {force.division && (
-              <p className="text-text-muted text-xs mt-0.5">{force.division}</p>
-            )}
+      <button
+        onClick={() => { setShowForm((v) => !v); setError(null) }}
+        className={cn(
+          'w-full flex items-center justify-between px-4 py-3.5 rounded-lg border font-semibold text-sm transition-colors mb-6',
+          showForm
+            ? 'border-accent bg-accent/5 text-accent'
+            : 'border-border bg-white text-text-primary hover:border-accent hover:text-accent'
+        )}
+      >
+        <div className="flex items-center gap-2">
+          <UserPlus className="w-4 h-4" />
+          Add a Contact
+        </div>
+        {showForm ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+      </button>
+
+      {showForm && (
+        <div className="bg-white border border-border rounded-lg p-5 mb-6 shadow-card space-y-4">
+          <div>
+            <label className="block text-text-secondary text-sm font-semibold mb-1.5">
+              Name <span className="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              placeholder="e.g. Insp. Adeyemi, Benue Sector Command"
+              className="w-full px-4 py-3 rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none text-sm"
+            />
+          </div>
+
+          <div>
+            <label className="block text-text-secondary text-sm font-semibold mb-1.5">
+              Force <span className="text-danger">*</span>
+            </label>
+            <select
+              value={form.type}
+              onChange={(e) => setForm({ ...form, type: e.target.value as ForceType | 'other' })}
+              className="w-full px-4 py-3 rounded-lg bg-surface border border-border text-text-primary focus:border-accent focus:outline-none text-sm appearance-none"
+            >
+              {FORCE_OPTIONS.map(([value, label]) => (
+                <option key={value} value={value}>{label}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-text-secondary text-sm font-semibold mb-1.5">
+              Phone Number <span className="text-danger">*</span>
+            </label>
+            <input
+              type="tel"
+              value={form.number}
+              onChange={(e) => setForm({ ...form, number: e.target.value })}
+              placeholder="e.g. 08012345678"
+              className="w-full px-4 py-3 rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none text-sm font-mono"
+            />
+          </div>
+
+          <div>
+            <label className="block text-text-secondary text-sm font-semibold mb-1.5">
+              Notes <span className="text-text-muted font-normal">(optional)</span>
+            </label>
+            <input
+              type="text"
+              value={form.notes}
+              onChange={(e) => setForm({ ...form, notes: e.target.value })}
+              placeholder="e.g. Lagos Island division, available after hours"
+              className="w-full px-4 py-3 rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none text-sm"
+            />
+          </div>
+
+          {error && (
+            <p className="text-danger text-sm px-3 py-2 rounded bg-danger-light border border-danger-border">
+              {error}
+            </p>
+          )}
+
+          <div className="flex gap-3 pt-1">
+            <button
+              onClick={handleAdd}
+              className="flex-1 py-3 rounded-lg bg-accent text-white font-bold text-sm hover:bg-accent-dark transition-colors active:scale-[0.98]"
+            >
+              Save Contact
+            </button>
+            <button
+              onClick={() => { setShowForm(false); setForm(EMPTY_FORM); setError(null) }}
+              className="px-5 py-3 rounded-lg border border-border text-text-secondary text-sm font-medium hover:border-border-dark hover:text-text-primary transition-colors"
+            >
+              Cancel
+            </button>
           </div>
         </div>
+      )}
 
-        {hasNumbers ? (
-          <div className="space-y-2">
-            {force.numbers.map((number) => {
-              const isFree = number === '112' || number === '767' || number === '193' || number === '199'
-              return (
-                <a
-                  key={number}
-                  href={`tel:${number}`}
-                  className={cn(
-                    'flex items-center justify-between w-full px-4 py-3.5 rounded border font-mono font-semibold text-base transition-all active:scale-[0.98]',
-                    isFree
-                      ? 'border-accent bg-accent text-white hover:bg-accent-dark'
-                      : 'border-border bg-surface hover:border-accent hover:bg-accent/5 text-text-primary'
-                  )}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 shrink-0" />
-                    <span>{formatPhoneForDisplay(number)}</span>
-                  </div>
-                  <span className="text-xs font-sans opacity-70">
-                    {isFree ? 'Free · Tap to call' : 'Tap to call'}
-                  </span>
-                </a>
-              )
-            })}
+      {contacts.length === 0 ? (
+        <div className="text-center py-16 px-4">
+          <div className="w-14 h-14 rounded-full bg-surface-dark flex items-center justify-center mx-auto mb-4">
+            <BookmarkCheck className="w-6 h-6 text-text-muted" />
           </div>
-        ) : (
-          <div className="flex items-center gap-2 px-3 py-2 rounded bg-surface border border-border text-text-muted text-sm">
-            <Info className="w-3.5 h-3.5 shrink-0" />
-            <span>No public number — contact via X or call 112</span>
-          </div>
-        )}
-
-        {hasX && (
-          <a
-            href={force.x_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 flex items-center gap-2 w-full px-3 py-2 rounded border border-border bg-surface hover:border-[#1DA1F2] transition-colors group text-sm"
-          >
-            <Twitter className="w-4 h-4 text-[#1DA1F2] shrink-0" />
-            <span className="text-text-secondary group-hover:text-text-primary transition-colors text-xs">{force.x_handle}</span>
-            <span className="ml-auto text-text-muted text-xs">DM →</span>
-          </a>
-        )}
-
-        {force.notes && (
-          <p className="mt-3 text-text-muted text-xs leading-relaxed border-t border-border pt-3">
-            {force.notes}
+          <p className="font-semibold text-text-primary mb-1">No saved contacts yet</p>
+          <p className="text-text-muted text-sm">
+            Add a contact above to get started.
           </p>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-widest text-text-muted font-semibold mb-3">
+            {contacts.length} {contacts.length === 1 ? 'Contact' : 'Contacts'}
+          </p>
+          {contacts.map((contact) => (
+            <SavedContactCard
+              key={contact.id}
+              contact={contact}
+              onDelete={handleDelete}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

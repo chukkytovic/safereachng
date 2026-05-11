@@ -110,14 +110,14 @@
       "x_url": "https://x.com/OfficialDSSNG",
       "is_free": false,
       "is_national": true,
-      "source": "dss.gov.ng official website — verified 2026",
+      "source": "dss.gov.ng official website",
       "verified": true,
       "last_updated": "2026-03-31",
       "notes": "Report terrorism, espionage, organized crime, separatist threats. NOT for everyday crime — use police for that."
     },
     {
       "name": "NEMA — National Emergency Management Agency",
-      "type": "other",
+      "type": "nema",
       "division": "National HQ, Abuja",
       "numbers": [
         "08102678443",
@@ -132,7 +132,7 @@
     },
     {
       "name": "Nigerian Red Cross Society",
-      "type": "other",
+      "type": "redcross",
       "division": "National",
       "numbers": [
         "08031230430"
