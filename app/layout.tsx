@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import InstallBanner from '@/components/InstallBanner'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
   title: 'SafeReach NG - Emergency Security Contacts',
@@ -36,7 +37,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-NG">
+    <html lang="en-NG" suppressHydrationWarning>
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -49,13 +50,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" sizes="167x167" href="/icon-167.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png" />
         <script dangerouslySetInnerHTML={{
-          __html: `if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js')})}`
+          __html: `if('serviceWorker' in navigator && location.hostname !== 'localhost'){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js')})}`
         }} />
       </head>
       <body className="bg-surface">
         <Navbar />
         <main className="min-h-dvh pt-16">{children}</main>
         <InstallBanner />
+        <Analytics />
         <footer className="bg-navy border-t border-navy-light mt-12 py-8 px-4 text-center">
           <p className="text-text-muted text-xs mb-3">
             Always try{' '}

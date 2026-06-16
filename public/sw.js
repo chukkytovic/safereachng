@@ -1,7 +1,12 @@
-const CACHE = 'safereachng-v2'
+const CACHE = 'safereachng-v3'
+
 const OFFLINE_URLS = [
   '/',
+  '/report',
+  '/my-contacts',
+  '/feed',
   '/manifest.json',
+  '/logo.png',
   '/icon-76.png',
   '/icon-120.png',
   '/icon-152.png',
@@ -9,10 +14,46 @@ const OFFLINE_URLS = [
   '/icon-180.png',
   '/icon-192.png',
   '/icon-512.png',
-  '/logo.png',
   '/police-logo.jpg',
   '/nscdc-logo.png',
   '/army-logo.png',
+  '/abia',
+  '/adamawa',
+  '/akwa-ibom',
+  '/anambra',
+  '/bauchi',
+  '/bayelsa',
+  '/benue',
+  '/borno',
+  '/cross-river',
+  '/delta',
+  '/ebonyi',
+  '/edo',
+  '/ekiti',
+  '/enugu',
+  '/fct',
+  '/gombe',
+  '/imo',
+  '/jigawa',
+  '/kaduna',
+  '/kano',
+  '/katsina',
+  '/kebbi',
+  '/kogi',
+  '/kwara',
+  '/lagos',
+  '/nasarawa',
+  '/niger',
+  '/ogun',
+  '/ondo',
+  '/osun',
+  '/oyo',
+  '/plateau',
+  '/rivers',
+  '/sokoto',
+  '/taraba',
+  '/yobe',
+  '/zamfara',
 ]
 
 self.addEventListener('install', (event) => {
@@ -33,13 +74,19 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
+
+  const url = new URL(event.request.url)
+  if (url.origin !== self.location.origin) return
+
   event.respondWith(
-    fetch(event.request)
-      .then((res) => {
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached
+      return fetch(event.request).then((res) => {
+        if (!res || res.status !== 200) return res
         const clone = res.clone()
         caches.open(CACHE).then((cache) => cache.put(event.request, clone))
         return res
-      })
-      .catch(() => caches.match(event.request))
+      }).catch(() => caches.match('/'))
+    })
   )
 })

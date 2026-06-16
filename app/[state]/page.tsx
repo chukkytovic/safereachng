@@ -6,14 +6,15 @@ import { STATES } from '@/lib/utils'
 import ContactCard from '@/components/contacts/ContactCard'
 import type { Metadata } from 'next'
 
-interface Props { params: { state: string } }
+interface Props { params: Promise<{ state: string }> }
 
 export async function generateStaticParams() {
   return STATES.map((s) => ({ state: s.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const contacts = getStateContacts(params.state)
+  const { state } = await params
+  const contacts = getStateContacts(state)
   if (!contacts) return { title: 'Not Found' }
   return {
     title: `${contacts.state} Emergency Contacts — SafeReach NG`,
@@ -21,8 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function StatePage({ params }: Props) {
-  const contacts = getStateContacts(params.state)
+export default async function StatePage({ params }: Props) {
+  const { state } = await params
+  const contacts = getStateContacts(state)
   if (!contacts) notFound()
 
   const national = getNationalContacts()
