@@ -1,4 +1,4 @@
-const CACHE = 'safereachng-v3'
+const CACHE = 'safereachng-v4'
 
 const OFFLINE_URLS = [
   '/',
@@ -78,6 +78,23 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url)
   if (url.origin !== self.location.origin) return
 
+  const isNavigation = event.request.mode === 'navigate'
+
+  if (isNavigation) {
+    event.respondWith(
+      fetch(event.request)
+        .then((res) => {
+          if (res && res.status === 200) {
+            const clone = res.clone()
+            caches.open(CACHE).then((cache) => cache.put(event.request, clone))
+          }
+          return res
+        })
+        .catch(() => caches.match(event.request))
+    )
+    return
+  }
+
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached
@@ -86,7 +103,7 @@ self.addEventListener('fetch', (event) => {
         const clone = res.clone()
         caches.open(CACHE).then((cache) => cache.put(event.request, clone))
         return res
-      }).catch(() => caches.match('/'))
+      })
     })
   )
 })
